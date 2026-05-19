@@ -1,0 +1,146 @@
+<!DOCTYPEhtml>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram USDT clicker and invite</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font family: 'Segoe UI', Arial, sans-serif;
+            textalign: center;
+            padding: 15px;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        h1 {
+            color: #f3ba2f;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .container-scale {
+            background-color: #222;
+            padding: 10px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 1px solid #333;
+        }
+.corner {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #f3ba2f, #f0a500);
+            border-radius: 50%;
+            margin: 30px self;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(243, 186, 47, 0.4);
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            user-select:none;
+            transition: transform 0.05s ease;
+        }
+        .coin:active {
+            transform: scale(0.92);
+        }
+        .btn {
+            display:block;
+            width: 100%;
+            background-color: #0088cc;
+            color:white;
+            border:none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+.btn-invite {
+            background-color: #4cd137;
+        }
+        .btn-ad {
+            background-color: #e67e22;
+        }
+        .footer-text {
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+<div class="coin" id="clickCoin">🪙</div>
+
+    <button class="btn btn-ad" onclick="https://omg10.com/4/10586582">📺 Watch Ad (+500 Coins)</button>
+
+    <a href="#" id="inviteBtn" class="btn btn-invite" target="_blank">🤝 Invite Friends (+1000)</a>
+
+    <p class="footer-text">Withdrawals available after reaching 100,000 Coins</p>
+</div>
+
+<script>
+    let count = parseInt(localStorage.getItem('crypto_balance')) || 0;
+    const balanceDisplay = document.getElementById('balance');
+    const coin = document.getElementById('clickCoin');
+    const inviteBtn = document.getElementById('inviteBtn');
+
+    // CONFIGURATION OF YOUR AD (TO MODIFY)
+    // Replace with the identifier of your robot provided by @BotFather (ex: t.me/MonUsdtClickerBot/app)
+    const TELEGRAM_BOT_APP_LINK = "https://t.me/MonUsdtClickerBot"; 
+    
+    // Automatic message that the friend will receive on Telegram
+    const SHARE_TEXT = "Hey! 🚀 Play this new USDT Clicker game with me and earn real rewards! Tap here to start:";
+    
+    // Dynamic configuration of the sharing link
+    inviteBtn.href = `https://t.me/share/url?url=${encodeURIComponent(TELEGRAM_BOT_APP_LINK)}&text=${encodeURIComponent(SHARE_TEXT)}`;
+
+    // Update initial display
+    balanceDisplay.innerText = count.toLocaleString();
+
+    // Click management on the part
+    coin.addEventListener('click', () => {
+        count += 1;
+        updateBalance();
+    });
+// Management of the click on Invitation (Gives the bonus immediately to encourage sharing)
+    inviteBtn.addEventListener('click', () => {
+        count += 1000;
+        updateBalance();
+    });
+
+// Advertising function (Monetag)
+    function watchAd() {
+        alert("Loading high-reward sponsor video...");
+        
+        // ⬇️ THIS IS WHERE YOU WILL PASTE YOUR MONETAG ADVERTISING CODE LATER ⬇️
+        count += 500;
+        updateBalance();
+    }
+
+    // Automatic saving of tokens in the player's phone
+    function updateBalance() {
+        localStorage.setItem('crypto_balance', count);
+        balanceDisplay.innerText = count.toLocaleString();
+    }
+</script>
+
+</body>
+</html>
+
+<div class="container">
+    <h1>USDT Mining Bot</h1>
+    <p style="color: #888; margin-top: 0;">Tap to earn virtual crypto</p>
+
+    <div class="balance-container">
+        <h2 style="margin: 0; font-size: 18px; color: #aaa;">Your Balance</h2>
+        <div style="font-size: 32px; font-weight: bold; color: #fff; margin-top: 5px;">
+            💰 <span id="balance">0</span> <span style="font-size: 16px; color: #f3ba2f;">COINS</span>
+        </div>
+    </div>
